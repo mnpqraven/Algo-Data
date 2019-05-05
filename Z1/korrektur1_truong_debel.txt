@@ -1,0 +1,20 @@
+Aufgabe 1 6.5/8
+a) 2/2
+b) 2/2
+c) (int) (Math.Random * n + 1) 	1.5/2
+d) Einige Fehler, generische Funktionen nochmal anschauen 1/2
+Es war ein Fehler im Code, weshalb er nicht kompilliert, in Zukunft testen, sonst gibt es 0 Punkte 
+
+Aufgabe 2 2/4
+a) Für jedes Element mind. ein Vergleich, um zu sehen, dass es bereits sortiert ist 0.5/1
+b) richtig ist 1/2 * (n/2) * (n/2 + 1) + n - 2	0/1
+c) richtig ist 2n - 1 Vergleiche 1.5/2
+
+Aufgabe 3 2.5/4
+a) f ist nur in Omega 0.5/1
+b) f liegt auch in Omega 0.5/1
+c) f liegt auch in O 0.5/1
+d) 1/1
+
+
+Gesamt 11/16
