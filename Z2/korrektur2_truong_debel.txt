@@ -1,0 +1,12 @@
+Aufgabe 1 0/8
+
+Aufgabe 2 3.5/4
+a) 2/2
+b) Mathematischen Beweis über z.B. Induktion führen 1/2
+
+Aufgabe 3 1.5/4
+a) Der Algorithmus berechnet immer die absolute Differenz zweier Tage unabhängig von Gewinn
+   oder Verlust, aufsplitten in pairs of 2 übernimmt trade bereits 0.5/2
+b) maxWin läuft in O(n), Trade in O(n * log(n)) stimmt 1/2
+
+Gesamt 5/16
