@@ -34,7 +34,7 @@ b.
 # Aufgabe 3
 a. Array $A = [33,26,14,26,5,-3,15,26,9,3]$
 
-heapsize always decrease after every iteration, therefore the maximum potential heapsize is in the first iteration
+Heapsize dekrementiert immer nach jeder Iteration, d.h die maximale potenzielle Heapsize ist in der erste Iteration
 
 - Erste Iteration
 
@@ -48,9 +48,9 @@ heapsize always decrease after every iteration, therefore the maximum potential 
 26    9   3
 \end{verbatim}
 
-- 2 Elements(root and 26 on the left) are already sorted, therefore `A.heapsize = 8`
+- 2 Elementen(root und 26 auf die linke Seite) sind schon sortiert, d.h `A.heapsize = 8`
 
-b. `max-heapify` wird `n-1` mal in $\mathcal{O}(logN)$ ausgeführt, also A.heapsize/2 -1
+b. `max-heapify` wird `n-1` mal in $\mathcal{O}(logN)$ ausgeführt, also `A.heapsize/2 -1`
 
 c.
 \begin{lstlisting}
