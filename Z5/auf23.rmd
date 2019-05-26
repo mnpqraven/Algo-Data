@@ -1,0 +1,58 @@
+---
+title:
+author: Truong, Diebel
+output: pdf_document
+header-includes:
+    - \usepackage{xcolor,amsmath,mathtools,listings}
+---
+
+# Aufgabe 3
+a.
+
+$w_1 + w_2 + w_3 + w_4 = \frac{9}{20} = 0.45 < \frac{1}{2}$
+
+$w_6 + w_7 + w_8 + w_9 + w_10 + w_11 = 0.5 \leq \frac{1}{2}$
+
+$\rightarrow w_5$ ist der gewichtete "Weight", d.h $x_5$ (100) ist der gewichtete Median
+
+b.
+
+- $\frac{1}{n}$ ist äquivalenz zum $\frac{1}{n}*100\%$ und das ist genauso $\frac{1}{n}*100$ Proben aus 100 Proben, und nach Definition, je nachdem, welcher $x_k$ die mitterer Probe gehört, ist der gewichtete Median
+- Für Gewichten $w_i=\frac{1}{n}, i=1,...,n$, d.h jede Element von $A(x)$ hat genauso die gleiche Gewichten $\rightarrow$ Summe ein häfte von Gewichten ist immer $\frac{1}{2}$ von dem gesamten Gewicht
+
+Weshalb ist der Median von $x_1,x_2,...,x_n$ der gewichtete Median $x_1,x_2,...,x_n$ mit Gewichten $w_i=\frac{1}{n}, i=1,...,n$
+
+c.
+Wir können der gewichtete Median durch Sortierung (zB Binary Search) die Elementen ($x_i$), die die Summe von die Häfte von $\displaystyle\sum_{i=1}^n w_i$ haben. Dieses Algorithmus hat $\mathcal{O}(n \log n)$ Laufzeit
+
+d.
+
+- Nehmen wir, dass das Array von Elementen `worst case` $\mathcal{O}(n)$ QuickSort Algorithmus benutz, um das Array zum Teile/Partitions zu verteilen.
+- Jetzt rechnen wir die "Weight" (also $w_i$) jedes Teils.
+  - Falls die linke Häfte $< \frac{1}{2}$ ist, und die rechte Häfte $\leq \frac{1}{2}$ ist, dann ist der gewichtete Median des kleineren Teils $x_i$ (1)
+  - Ansonsten, dann muss der gewichtete Median in dem großeren Teil liegen. Addieren wir die "weight" ($w_i$) von dem kleineren Teil (aus (1)) zum $x_i$ und suchen wir recursiv in dem großeren Teil
+
+weightedMedian($A$)
+
+| if $n$ == 1
+|     return $a_1$
+| else if $n$ == 2
+|   if $w_1 \geq w_2$
+|     return $a_1$
+|   else
+|     return $a_2$
+| else
+|   determine $a_x$, which is the (lower) median of A
+|   partition A around $a_x$
+|   $W_{low}$ = $\sum\limits_{{a_i} < {a_x}} {{w_i}}$
+|   $W_{high}$ = $\sum\limits_{{a_i} > {a_x}} {{w_i}}$
+|   if $W_{low} < \frac{1}{2}$ AND $W_{high} \leq \frac{1}{2}$
+|     return $a_x$
+|   else if $W_{low} \geq \frac{1}{2}$
+|     $w_x = w_x + W_{high}$
+|     B = $a_i \in A: a_i \leq a_x$
+|     weightedMedian(B)
+|   else
+|     $w_x = w_x + W_{low}$
+|     B = $a_i \in A: a_i \geq a_x$
+|     weightedMedian(B)
