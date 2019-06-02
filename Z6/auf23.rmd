@@ -1,0 +1,86 @@
+---
+title: Übungsblatt 6
+author: Truong, Diebel
+output: pdf_document
+header-includes:
+    - \usepackage{xcolor,amsmath,mathtools,listings}
+---
+
+# Aufgabe 2
+a.
+- Keys from 1 to 1000
+- Search till key 424
+\begin{verbatim}
+         424
+       /    \
+    407      516
+    / \     /   \
+  301 420  513  966
+\end{verbatim}
+
+$\rightarrow$ 2. Reihe ist die richtige Folge
+
+b. (not sure)
+- Left subtree: 424 - 333 = 91
+- Right subtree: 601 - 511 = 90
+
+# Aufgabe 3
+a.
+Folge: 3,21,27,23,20,42,33,47,67,51,45,30
+\begin{verbatim}
+           30
+         /    \
+        /      \
+     20         51
+     / \      /    \
+   21  23    33    67
+   /     \    \    /
+3       27  42  47
+\end{verbatim}
+
+b.
+- Can we construct a binary tree based on the sequence of Postorder ? Yes
+- Example from a. for easy context
+- Folge: 3,21,27,23,20,42,33,47,67,51,45,30
+  - Last index is always the root $\rightarrow$ 30
+  - All elements smaller than root are from the left subtree, bigger than root are from the right subtree
+  - 3,21,27,23,20 from left, 33,37,67,51,45 from right
+  - Analyze left subtree:
+
+- 3 < 21 $\rightarrow$ 3 is child, left side of parent 21
+
+\begin{verbatim}
+   21
+  /
+ 3
+\end{verbatim}
+
+- 27 > 21 $\rightarrow$ 27 same level as 3
+
+\begin{verbatim}
+   21
+  /
+ 3    27
+\end{verbatim}
+
+- 23 < 27 $\rightarrow$ 23 same level as 21, 27 is child, right side of parent 23
+
+\begin{verbatim}
+   21  23
+  /     \
+ 3      27
+\end{verbatim}
+
+- 20 > left child 21 and 20 < right child 23 $\rightarrow$ 20 is parent of child 21 and 23, and 20 left child of root 30
+
+\begin{verbatim}
+      30
+     /
+    20
+   /  \
+  21   23
+  /     \
+ 3      27
+\end{verbatim}
+
+  - Exact same algorithm with right subtree
