@@ -1,0 +1,320 @@
+---
+title: Übungsblatt 7
+author: Truong
+output: pdf_document
+---
+
+# Aufgabe 2
+- Notiz: R heißt Rot (red node), B heißt Schwarz (black node)
+- Add 41
+\begin{verbatim}
+B41
+\end{verbatim}
+- Add 38
+\begin{verbatim}
+     B41
+    /
+R38
+\end{verbatim}
+- Add 31
+\begin{verbatim}
+     B38
+    /   \
+R31    R41
+\end{verbatim}
+- Add 12
+\begin{verbatim}
+       B38
+       /  \
+    B31   B41
+    /
+R12
+\end{verbatim}
+- Add 19
+\begin{verbatim}
+       B38
+      /   \
+    B19    B41
+    / \
+R12   R31
+\end{verbatim}
+- Add 8
+\begin{verbatim}
+        B38
+       / \
+     R19  B41
+     / \
+   B12  B31
+   /
+R8
+\end{verbatim}
+
+# Aufgabe 3
+Gegebenen Baum:
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+  B10                R27
+   / \            /      \
+  /   \          /        \
+ R2   B11        B23       B45
+  /\    \        /\       /   \
+ /  \    \      /  \     /     \
+B0   B6  R13  B19 B26    B40   R49
+   /              /     /     /   \
+  R5             R25   R38   B46  B57
+                                  /
+                                 B51
+\end{verbatim}
+\pagebreak
+**Delete 11**
+
+Vor `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+  B2                 R27
+   / \            /      \
+  /   \          /        \
+ B0   R10        B23       B45
+      / \        /\       /   \
+     /   \      /  \     /     \
+     B6  R13  B19 B26    B40   R49
+   /              /     /     /   \
+  R5             R25   R38   B46  B57
+                                  /
+                                 R51
+\end{verbatim}
+Nach `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+  B2                 R27
+   / \            /      \
+  /   \          /        \
+ B0   R6         B23       B45
+      / \        /\       /   \
+     /   \      /  \     /     \
+    B5   B10  B19 B26    B40   R49
+          \       /     /     /   \
+          R13    R25   R38   B46  B57
+                                  /
+                                 R51
+\end{verbatim}
+
+\pagebreak
+**Delete 0**
+
+Vor `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ R2   B10        B23       B45
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    B5   R13  B19 B26    B40   R49
+                  /     /     /   \
+                 R25   R38   B46  B57
+                                  /
+                                 R51
+\end{verbatim}
+Nach `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B45
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    B40   R49
+                  /     /     /   \
+                 R25   R38   B46  B57
+                                  /
+                                 R51
+\end{verbatim}
+
+\pagebreak
+**Delete 40**
+
+Vor `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    R45    B57
+                  /     /  \    /
+                 R25   R38 B46 R51
+\end{verbatim}
+Nach `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    B45    B57
+                  /     /  \    /
+                 R25   R38 R46 R51
+\end{verbatim}
+
+\pagebreak
+**Delete 38**
+
+vor `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    B45    B57
+                  /        \    /
+                 R25       R46 R51
+\end{verbatim}
+Nach `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    B45    B57
+                  /        \    /
+                 R25       R46 R51
+\end{verbatim}
+
+\pagebreak
+**Delete 46**
+
+Vor `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    B45    B57
+                  /             /
+                 R25           R51
+\end{verbatim}
+Nach `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\       /   \
+  \      \      /  \     /     \
+    R5   R13  B19 B26    B45    B57
+                  /             /
+                 R25           R51
+\end{verbatim}
+
+\pagebreak
+**Delete 45**
+
+Vor `RB-Delete-Fixup`
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B49
+ \      \        /\           \
+  \      \      /  \           \
+    R5   R13  B19 B26           B51
+                  /              \
+                 R25              R57
+\end{verbatim}
+Nach `RB-Delete-fixup` bzw End-result:
+\begin{verbatim}
+            B17
+        /        \
+       /          \
+      /            \
+     /              \
+    /                \
+   B6                R27
+   / \            /      \
+  /   \          /        \
+ B2   B10        B23       B51
+ \      \        /\        /  \
+  \      \      /  \      /    \
+    R5   R13  B19 B26   B49     B57
+                  /
+                 R25
+\end{verbatim}
+

@@ -1,6 +1,6 @@
 ---
 title: Übungsblatt 6
-author: Truong, Diebel
+author: Truong, Debel
 output: pdf_document
 header-includes:
     - \usepackage{xcolor,amsmath,mathtools,listings}
@@ -8,8 +8,6 @@ header-includes:
 
 # Aufgabe 2
 a.
-- Keys from 1 to 1000
-- Search till key 424
 \begin{verbatim}
          424
        /    \
@@ -18,9 +16,9 @@ a.
   301 420  513  966
 \end{verbatim}
 
-$\rightarrow$ 2. Reihe ist die richtige Folge
+$\rightarrow$ 1. Reihe ist die richtige Folge
 
-b. (not sure)
+b.
 - Left subtree: 424 - 333 = 91
 - Right subtree: 601 - 511 = 90
 
@@ -39,48 +37,27 @@ Folge: 3,21,27,23,20,42,33,47,67,51,45,30
 \end{verbatim}
 
 b.
-- Can we construct a binary tree based on the sequence of Postorder ? Yes
-- Example from a. for easy context
-- Folge: 3,21,27,23,20,42,33,47,67,51,45,30
-  - Last index is always the root $\rightarrow$ 30
-  - All elements smaller than root are from the left subtree, bigger than root are from the right subtree
-  - 3,21,27,23,20 from left, 33,37,67,51,45 from right
-  - Analyze left subtree:
+- Ist durch die Postorderreihenfolge seiner Schlussel der Baum $B$ eindeutig bestimmt?
+  - Nein, da diese 2 verchiedenen Bäume die gleicher Postorderreihenfolge haben
 
-- 3 < 21 $\rightarrow$ 3 is child, left side of parent 21
-
+Baum 1: Postorder: 1,2,3,4,5,6,7,8
 \begin{verbatim}
-   21
-  /
- 3
+      8
+     / \
+   4    7
+  /  \    \
+ 1    3    6
+     /    /
+    2    5
 \end{verbatim}
 
-- 27 > 21 $\rightarrow$ 27 same level as 3
-
+Baum 2: Postorder: 1,2,3,4,5,6,7,8
 \begin{verbatim}
-   21
-  /
- 3    27
-\end{verbatim}
-
-- 23 < 27 $\rightarrow$ 23 same level as 21, 27 is child, right side of parent 23
-
-\begin{verbatim}
-   21  23
-  /     \
- 3      27
-\end{verbatim}
-
-- 20 > left child 21 and 20 < right child 23 $\rightarrow$ 20 is parent of child 21 and 23, and 20 left child of root 30
-
-\begin{verbatim}
-      30
+       8
+     /   \
+   4       7
+  /  \   /  \
+ 1    3  5   6
      /
-    20
-   /  \
-  21   23
-  /     \
- 3      27
+    2
 \end{verbatim}
-
-  - Exact same algorithm with right subtree
