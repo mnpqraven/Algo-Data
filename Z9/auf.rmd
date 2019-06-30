@@ -1,0 +1,50 @@
+---
+title: Übungsblatt 9
+author:
+output: pdf_document
+---
+
+# Aufgabe 2
+
+- Die Hashtabelle hat Große $\frac{k^n.l^m}{2}$
+- Ersten n-Ziffern sind im Bereich {$0,...,k-1$}
+- Ersten m-Ziffern sind im Bereich {$0,...,l-1$}
+
+$\rightarrow h = \bigg(\sum\limits_{n+m-1}^{i=m} (k-1).10^i + \sum\limits_{m}^{i=0} (l-1).10^i\bigg)$ $mod$ $\frac{k^n.l^m}{2}$
+
+Von der funktion können wir eindeutige $n + m$ IDs als Hash Schlüssel betracten. z.B:
+
+$n = m = 2, k = 4, l = 3$
+
+$\rightarrow h = (3000 + 300 + 20 + 2)$ $mod$ $\frac{16.9}{2} = \frac{3322}{72} = 20$. Schlüssel
+
+# Aufgabe 3
+Uniformes Hashing: Anstatt durch einer definierten Hash-Funktion, ein ***zufällige*** Hash-Funktion von einem Funktion-Set wird gewält. Diese Hashing-Methode eine wichtige Eigenschaft:
+
+- Real-time hashing Entscheidungen
+
+$\rightarrow$ Kann nicht die Paare von Keys, die Kollisions auftreten, konsistenz finden.
+
+$\rightarrow$ Alle chaining LinkedList sind balanciert
+
+Anzahl der Kollisionen: $\frac{|K|}{m}$, $|K|$ ist die Anzahl, wie viele die Hash-Funktion ausgerufen wird, also Anzahl der *Keys*
+
+$\Rightarrow No. Kollisions = \frac{n}{m}$
+
+# Aufgabe 4
+
+Zu zeigen: Die gegebenen Schritten entspicht die Funktion, ein Element in der Hashtabelle zu suchen
+
+Beweis:
+
+* i(3. schritt) ist incrementiert immer nach ein Suchen des key k(2. schritt) und stoppt bis i = m
+
+$\rightarrow$i ist a counter und j = (i + j), also h(k) + i läuft recursiv bis Ende der Tabelle
+
+$\rightarrow$ Das Sequenz von Suchcounter(bevor $mod$ $m$) sind: h(k) + 0, h(k) + 1, h(k) + 3, h(k) + 6 ... ,h(k) + m $\Rightarrow$ quadratischen Sondieren Suchmethod, die $c_1$ und $c_2$ enthält
+
+Werte von $c_1$: $\frac{1}{2}$
+
+Werte von $c_2$: $\frac{1}{2}$
+
+Hash-Funktion: $h(k,i) = h(k) + \frac{1}{2}i + \frac{1}{2}i^2$
